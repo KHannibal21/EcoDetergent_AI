@@ -4,33 +4,58 @@
     "slug": "EcoDetergent_AI",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/images/ecoDetergent_AI_icon.png",
     "scheme": "ecodetergentai",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app uses the camera to scan detergent packaging for eco-analysis",
+        "NSPhotoLibraryUsageDescription": "This app needs access to your photos to analyze detergent packaging"
+      },
+      "bundleIdentifier": "com.ecodetergentai.app"
     },
     "android": {
-      "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
-      },
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "permissions": [
+        "CAMERA",
+        "android.permission.CAMERA",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.READ_MEDIA_VISUAL_USER_SELECTED",
+        "android.permission.ACCESS_MEDIA_LOCATION",
+        "android.permission.READ_MEDIA_IMAGES",
+        "android.permission.READ_MEDIA_VIDEO",
+        "android.permission.READ_MEDIA_AUDIO"
+      ],
+      "package": "com.ecodetergentai.app"
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/images/ecoDetergent_AI_icon.png"
     },
     "plugins": [
       "expo-router",
       [
+        "expo-camera",
+        {
+          "cameraPermission": "Allow EcoDetergent_AI to access your camera to scan detergent packaging"
+        }
+      ],
+      [
+        "expo-media-library",
+        {
+          "photosPermission": "Allow EcoDetergent_AI to access your photos to analyze detergent packaging",
+          "savePhotosPermission": "Allow EcoDetergent_AI to save photos",
+          "isAccessMediaLocationEnabled": true
+        }
+      ],
+      [
         "expo-splash-screen",
         {
-          "image": "./assets/images/splash-icon.png",
+          "image": "./assets/images/ecoDetergent_AI_icon.png",
           "imageWidth": 200,
           "resizeMode": "contain",
           "backgroundColor": "#ffffff",
@@ -43,6 +68,13 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "geminiApiKey": "AIzaSyAfF-XuASMFZpMiteEEEDPpf2CkDaBfY6Q",
+      "router": {},
+      "eas": {
+        "projectId": "fd0386fd-bfe5-4f7e-9472-6d161d8361c7"
+      }
     }
   }
 }
