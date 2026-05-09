@@ -25,7 +25,7 @@ export interface AIAnalysisResult {
 }
 
 class AIAnalysisService {
-  private apiKey: string | null = 'AIzaSyAfF-XuASMFZpMiteEEEDPpf2CkDaBfY6Q';
+  private apiKey: string | null = '';
   private baseURL: string = 'https://generativelanguage.googleapis.com/v1beta/models';
 
   constructor() {
